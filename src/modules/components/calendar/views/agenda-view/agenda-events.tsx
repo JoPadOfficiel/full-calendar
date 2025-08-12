@@ -1,4 +1,4 @@
-import {differenceInDays, format, parseISO, startOfDay} from "date-fns";
+import {format, parseISO} from "date-fns";
 import type {FC} from "react";
 import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar";
 import {
@@ -16,7 +16,7 @@ import {
     formatTime,
     getBgColor,
     getColorClass, getEventsForMonth,
-    getFirstLetters, groupEvents,
+    getFirstLetters,
     toCapitalize,
 } from "@/modules/components/calendar/helpers";
 import {EventBullet} from "@/modules/components/calendar/views/month-view/event-bullet";
