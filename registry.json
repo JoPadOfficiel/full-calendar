@@ -149,7 +149,15 @@
           "type": "registry:component"
         },
         {
+          "path": "src/modules/components/calendar/dialogs/dnd-confirmation-dialog.tsx",
+          "type": "registry:component"
+        },
+        {
           "path": "src/modules/components/calendar/dialogs/event-details-dialog.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/modules/components/calendar/dialogs/event-drop-confirmation-dialog.tsx",
           "type": "registry:component"
         },
         {
