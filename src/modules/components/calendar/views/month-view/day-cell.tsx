@@ -98,21 +98,18 @@ export function DayCell({ cell, events, eventPositions }: IProps) {
 
     const cellContent = useMemo(
         () => (
+                <DroppableArea date={date} className="w-full h-full">
             <motion.div
-                className={cn(
-                    "flex flex-col gap-1 border-l border-t md:min-h-[150px]",
-                    isSunday(date) && "border-l-0"
-                )}
+                className={cn("flex h-full flex-col gap-1 border-l border-t py-1.5 lg:py-2", isSunday(date) && "border-l-0")}
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={transition}
             >
-                <DroppableArea date={date} className="w-full h-full py-2">
                     <motion.span
                         className={cn(
-                            "h-6 w-6 px-1 flex translate-x-1 items-center justify-center rounded-full text-xs font-semibold lg:px-2 mb-1",
-                            !currentMonth && "text-muted-foreground",
-                            isToday(date) && "bg-primary text-primary-foreground"
+                            "h-6 px-1 text-xs font-semibold lg:px-2",
+                            !currentMonth && "opacity-20",
+                            isToday(date) && "flex w-6 translate-x-1 items-center justify-center rounded-full bg-primary px-0 font-bold text-primary-foreground"
                         )}
                         whileHover={{ scale: 1.1 }}
                         transition={transition}
@@ -121,11 +118,8 @@ export function DayCell({ cell, events, eventPositions }: IProps) {
                     </motion.span>
 
                     <motion.div
-                        className={cn(
-                            "flex gap-1 lg:flex-col mx-2 md:mx-0 lg:gap-2 lg:px-0",
-                            !currentMonth && "opacity-50"
-                        )}
-                        variants={staggerContainer}
+                        className={cn("flex h-6 gap-1 px-2 lg:h-[94px] lg:flex-col lg:gap-2 lg:px-0", !currentMonth && "opacity-50")}
+                        // variants={staggerContainer}
                     >
                         {[0, 1, 2].map(renderEventAtPosition)}
                     </motion.div>
@@ -151,8 +145,8 @@ export function DayCell({ cell, events, eventPositions }: IProps) {
                             <EventListDialog date={date} events={cellEvents} />
                         </motion.div>
                     )}
-                </DroppableArea>
             </motion.div>
+                </DroppableArea>
         ),
         [
             date,
@@ -176,3 +170,6 @@ export function DayCell({ cell, events, eventPositions }: IProps) {
 
     return cellContent;
 }
+
+
+
