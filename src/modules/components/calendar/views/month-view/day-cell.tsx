@@ -98,35 +98,33 @@ export function DayCell({ cell, events, eventPositions }: IProps) {
 
     const cellContent = useMemo(
         () => (
-                <DroppableArea date={date} className="w-full h-full">
             <motion.div
-                className={cn("flex h-full flex-col gap-1 border-l border-t py-1.5 lg:py-2", isSunday(date) && "border-l-0")}
+                className={cn("flex h-full lg:min-h-[10rem] flex-col gap-1 border-l border-t", isSunday(date) && "border-l-0")}
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={transition}
             >
+            <DroppableArea date={date} className="w-full h-full py-2">
                     <motion.span
                         className={cn(
                             "h-6 px-1 text-xs font-semibold lg:px-2",
                             !currentMonth && "opacity-20",
                             isToday(date) && "flex w-6 translate-x-1 items-center justify-center rounded-full bg-primary px-0 font-bold text-primary-foreground"
                         )}
-                        whileHover={{ scale: 1.1 }}
-                        transition={transition}
                     >
                         {day}
                     </motion.span>
 
                     <motion.div
-                        className={cn("flex h-6 gap-1 px-2 lg:h-[94px] lg:flex-col lg:gap-2 lg:px-0", !currentMonth && "opacity-50")}
+                        className={cn("flex h-fit gap-1 px-2 mt-1 lg:h-[94px] lg:flex-col lg:gap-2 lg:px-0", !currentMonth && "opacity-50")}
                         // variants={staggerContainer}
                     >
                         {[0, 1, 2].map(renderEventAtPosition)}
                     </motion.div>
 
                     {showMobileMore && (
-                        <div className="flex justify-end items-end my-1.5 mx-2">
-							<span className="rounded-full border bg-accent/60 px-1 py-0.5 text-[0.6rem] font-semibold text-accent-foreground shadow-sm ring-1 ring-accent/30">
+                        <div className="flex justify-end items-end mx-2">
+							<span className="text-[0.6rem] font-semibold text-accent-foreground">
 								+{showMoreCount}
 							</span>
                         </div>
@@ -145,8 +143,8 @@ export function DayCell({ cell, events, eventPositions }: IProps) {
                             <EventListDialog date={date} events={cellEvents} />
                         </motion.div>
                     )}
-            </motion.div>
                 </DroppableArea>
+            </motion.div>
         ),
         [
             date,
