@@ -25,9 +25,10 @@ import FilterEvents from "@/modules/components/calendar/header/filter";
 import { TodayButton } from "@/modules/components/calendar/header/today-button";
 import { UserSelect } from "@/modules/components/calendar/header/user-select";
 import { Settings } from "@/modules/components/calendar/settings/settings";
+import Views from "./view-tabs";
 
 export function CalendarHeader() {
-	const { view, setView, events } = useCalendar();
+	const { view, events } = useCalendar();
 
 	return (
 		<div className="flex flex-col gap-4 border-b p-4 lg:flex-row lg:items-center lg:justify-between">
@@ -51,61 +52,14 @@ export function CalendarHeader() {
 			>
 				<div className="options flex-wrap flex items-center gap-4 md:gap-2">
 					<FilterEvents />
-
-					<ButtonGroup className="flex">
-                        <Button
-                            variant={view === "agenda" ? "default" : "outline"}
-                            onClick={() => setView("agenda")}
-                        >
-                            {view === "agenda" ? (
-                                <>
-                                    <CalendarRange />
-                                </>
-                            ) : (
-                                <LayoutList />
-                            )}
-                        </Button>
-						<Button
-							variant={view === "day" ? "default" : "outline"}
-							aria-label="View by day"
-							onClick={() => {
-								setView("day");
-							}}
-						>
-							<List className="h-4 w-4" />
-						</Button>
-
-						<Button
-							variant={view === "week" ? "default" : "outline"}
-							aria-label="View by week"
-							onClick={() => setView("week")}
-						>
-							<Columns className="h-4 w-4" />
-						</Button>
-
-						<Button
-							variant={view === "month" ? "default" : "outline"}
-							aria-label="View by month"
-							onClick={() => setView("month")}
-						>
-							<Grid3X3 className="h-4 w-4" />
-						</Button>
-						<Button
-							variant={view === "year" ? "default" : "outline"}
-							aria-label="View by year"
-							onClick={() => setView("year")}
-						>
-							<Grid2X2 className="h-4 w-4" />
-						</Button>
-					</ButtonGroup>
+					<Views />
 				</div>
 
 				<div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:gap-1.5">
 					<UserSelect />
 
 					<AddEditEventDialog>
-						<Button
-						>
+						<Button>
 							<Plus className="h-4 w-4" />
 							Add Event
 						</Button>
