@@ -125,6 +125,7 @@
         "textarea",
         "toggle",
         "tooltip",
+        "tabs",
         "https://calendar.jeraidi.tech/r/avatar-group.json",
         "https://calendar.jeraidi.tech/r/day-picker.json",
         "https://calendar.jeraidi.tech/r/date-time-picker.json",
@@ -178,6 +179,10 @@
         },
         {
           "path": "src/modules/components/calendar/header/calendar-header.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/modules/components/calendar/header/view-tabs.tsx",
           "type": "registry:component"
         },
         {
