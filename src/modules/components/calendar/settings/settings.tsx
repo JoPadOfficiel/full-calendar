@@ -159,20 +159,6 @@ export function Settings() {
 					</DropdownMenuItem>
 				</DropdownMenuGroup>
 				<DropdownMenuSeparator />
-				<DropdownMenuGroup className="w-56">
-					<DropdownMenuLabel>Default view</DropdownMenuLabel>
-					<DropdownMenuRadioGroup
-						value={view}
-						onValueChange={(value) => setView(value as TCalendarView)}
-					>
-						<DropdownMenuRadioItem value="day">Day</DropdownMenuRadioItem>
-						<DropdownMenuRadioItem value="week">Week</DropdownMenuRadioItem>
-						<DropdownMenuRadioItem value="month">Month</DropdownMenuRadioItem>
-						<DropdownMenuRadioItem value="year">Year</DropdownMenuRadioItem>
-						<DropdownMenuRadioItem value="agenda">Agenda</DropdownMenuRadioItem>
-					</DropdownMenuRadioGroup>
-				</DropdownMenuGroup>
-				<DropdownMenuSeparator />
 				<DropdownMenuGroup>
 					<DropdownMenuLabel>Agenda view group by</DropdownMenuLabel>
 					<DropdownMenuRadioGroup
