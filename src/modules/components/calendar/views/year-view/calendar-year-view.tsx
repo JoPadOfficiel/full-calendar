@@ -39,7 +39,7 @@ export function CalendarYearView({ singleDayEvents, multiDayEvents }: IProps) {
 	const allEvents = [...multiDayEvents, ...singleDayEvents];
 
 	return (
-		<div className="flex flex-col h-full min-h-[80vh] overflow-y-auto p-4 sm:p-6">
+		<div className="flex flex-col h-full  overflow-y-auto p-4  sm:p-6">
 			{/* Year grid */}
 			<motion.div
 				initial="initial"
